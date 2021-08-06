@@ -1,0 +1,5 @@
+# Ignora la carpeta
+__pycache__
+.spyproject
+
+
