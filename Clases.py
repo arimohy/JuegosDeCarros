@@ -109,11 +109,18 @@ class Juego():
     def __init__(self):
         print("Bienvenido al juego de carros")
         
+    def validacionjugadores(self,n):
+        while(n<3):
+            print("Ingreso un valor menor a 3 vuelva a intentarlo")
+            n=int(input("Ingrese numero de jugadores minimo son 3:"))
+        return n
+            
+        
     def datos(self):
         self.limitepista=int(input("Ingrese Limite o tamaño de la pista en Kilometros:"))
         self.limitepistametros=self.limitepista*1000
-        self.nrojugadores=int(input("Ingrese numero de jugadores minimo son 3:"))
-        
+        n=int(input("Ingrese numero de jugadores minimo son 3:"))
+        self.nrojugadores=self.validacionjugadores(n)
     def llenadocarriles(self):
         ListaConductores=[]
         for j in range(1,self.nrojugadores+1):
@@ -158,7 +165,7 @@ class Juego():
         while(self.Podio.completado==False):
             for i in range(0,len(self.pista.listaCarriles)):
                 if(self.pista.listaCarriles[i].terminocarril==False):
-                    print("llega a ti")
+                    #print("llega a ti")
                     avance=self.avancerandom()
                     avancejugadores[i]=avancejugadores[i]+avance
                     self.pista.listaCarriles[i].avanzar(avance)
